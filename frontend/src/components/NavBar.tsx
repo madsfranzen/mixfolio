@@ -22,7 +22,11 @@ const ToggleWrapper = styled.div`
   transform: translateY(-50%);
 `;
 
-export function NavBar() {
+interface props {
+    hideLinks?: boolean;
+}
+
+export function NavBar({ hideLinks = false }: props) {
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -35,7 +39,7 @@ export function NavBar() {
 
     return (
         <NavBarContainer>
-            <ButtonGroup>
+            <ButtonGroup style={{ visibility: hideLinks ? "hidden" : "visible" }}>
                 {links.map(link => (
                     <NavBarButton key={link.to} selected={currentPath === link.to}>
                         <Link to={link.to}>{link.label}</Link>

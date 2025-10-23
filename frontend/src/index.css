@@ -121,3 +121,6 @@
   }
 }
 
+* {
+  user-select: none;
+}

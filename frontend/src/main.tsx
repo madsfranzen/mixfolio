@@ -6,16 +6,23 @@ import { Home } from './pages/Home.tsx'
 import { Credits } from './pages/Credits.tsx'
 import { Pricing } from './pages/Pricing.tsx'
 import { Contact } from './pages/Contact.tsx'
+import { Admin } from './pages/Admin.tsx'
+import { Error404 } from './pages/Error404.tsx'
+import { ThemeProvider } from "@/components/theme-provider";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/credits" element={<Credits />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
-        </BrowserRouter>
-    </StrictMode >,
+        <ThemeProvider defaultTheme="system">
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/credits" element={<Credits />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="*" element={< Error404 />} />
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
+    </StrictMode >
 )
