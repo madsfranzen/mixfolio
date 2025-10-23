@@ -9,10 +9,12 @@ import { Contact } from './pages/Contact.tsx'
 import { Admin } from './pages/Admin.tsx'
 import { Error404 } from './pages/Error404.tsx'
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner"
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <ThemeProvider defaultTheme="system">
+            <Toaster position='top-center'/>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />

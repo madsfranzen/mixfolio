@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react";
 import { NavBar } from "@/components/NavBar";
 
+import { toast } from "sonner"
+
 export function Admin() {
     const [authorized, setAuthorized] = useState(false);
     const [password, setPassword] = useState("");
@@ -17,7 +19,8 @@ export function Admin() {
             setAuthorized(true);
             setPassword("");
         } else {
-            alert("Wrong password");
+            // alert("Wrong password");
+            toast.error("Wrong password!")
         }
     };
 
