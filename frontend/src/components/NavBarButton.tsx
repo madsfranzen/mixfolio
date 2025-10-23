@@ -4,6 +4,7 @@ import styled from "styled-components";
 /* Wrap shadcn Button and apply custom styles */
 const StyledButton = styled(Button)`
     color: red;
+    cursor: default;
 `;
 
 interface NavBarButtonProps {
@@ -13,7 +14,10 @@ interface NavBarButtonProps {
 
 export function NavBarButton({ children, selected = false }: NavBarButtonProps) {
     return (
-        <StyledButton asChild variant={selected ? "outline" : "ghost"}>
+        <StyledButton
+            asChild
+            size={'lg'}
+            variant={selected ? "outline" : "ghost"}>
             {children}
         </StyledButton>
     );
