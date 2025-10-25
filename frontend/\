@@ -5,16 +5,11 @@ import { useState } from 'react';
 import { NavBar } from '@/components/NavBar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { DataTable } from '@/components/WorksTable/data-table';
-import { columns } from '@/components/WorksTable/columns';
-import { works } from '@/models/Work';
 
 export function Admin() {
   const [authorized, setAuthorized] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const data = works;
 
   // TODO: Change this to use backend for validation
   const ADMIN_USERNAME = 'admin';
@@ -31,7 +26,7 @@ export function Admin() {
     }
   };
 
-  if (authorized) {
+  if (!authorized) {
     // Login Form
     return (
       <>
@@ -73,8 +68,6 @@ export function Admin() {
       <NavBar hideLinks={true} />
       <CenteredContainer>
         <h1>Admin Dashboard</h1>
-
-        <DataTable columns={columns} data={data} />
       </CenteredContainer>
     </>
   );
