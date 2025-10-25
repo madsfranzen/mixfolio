@@ -16,12 +16,12 @@ export const works: Work[] = [
     id: '00124',
     artist: 'Jin DeLuca',
     title: 'Cotton Trees',
-    credits: ['Mixing', 'Mastering', "Production"],
+    credits: ['Mixing', 'Mastering', 'Production'],
   },
   {
     id: '00125',
     artist: 'Oscar',
-    title: 'Det Ku\' Vaere Os',
+    title: "Det Ku' Vaere Os",
     credits: ['Mixing', 'Mastering'],
   },
   {
@@ -34,12 +34,12 @@ export const works: Work[] = [
     id: '00124',
     artist: 'Jin DeLuca',
     title: 'Cotton Trees',
-    credits: ['Mixing', 'Mastering', "Production"],
+    credits: ['Mixing', 'Mastering', 'Production'],
   },
   {
     id: '00125',
     artist: 'Oscar',
-    title: 'Det Ku\' Vaere Os',
+    title: "Det Ku' Vaere Os",
     credits: ['Mixing', 'Mastering'],
   },
   {
@@ -52,12 +52,12 @@ export const works: Work[] = [
     id: '00124',
     artist: 'Jin DeLuca',
     title: 'Cotton Trees',
-    credits: ['Mixing', 'Mastering', "Production"],
+    credits: ['Mixing', 'Mastering', 'Production'],
   },
   {
     id: '00125',
     artist: 'Oscar',
-    title: 'Det Ku\' Vaere Os',
+    title: "Det Ku' Vaere Os",
     credits: ['Mixing', 'Mastering'],
   },
   {
@@ -70,12 +70,12 @@ export const works: Work[] = [
     id: '00124',
     artist: 'Jin DeLuca',
     title: 'Cotton Trees',
-    credits: ['Mixing', 'Mastering', "Production"],
+    credits: ['Mixing', 'Mastering', 'Production'],
   },
   {
     id: '00125',
     artist: 'Oscar',
-    title: 'Det Ku\' Vaere Os',
+    title: "Det Ku' Vaere Os",
     credits: ['Mixing', 'Mastering'],
   },
 ];

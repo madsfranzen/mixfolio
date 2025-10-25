@@ -10,35 +10,55 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Badge } from '../ui/badge';
 
 export const columns: ColumnDef<Work>[] = [
   {
     accessorKey: 'id',
-    header: () => <div className="text-left">ID</div>,
+    header: () => <div className="text-left"># ID</div>,
     cell: ({ row }) => {
-      const idWithPrefix = '#' + row.getValue('id');
-      return <div className="text-left font-medium">{idWithPrefix}</div>;
+      return <div className="text-left font-medium">{row.getValue('id')}</div>;
     },
   },
   {
     accessorKey: 'artist',
     header: 'Artist',
     cell: ({ row }) => {
-      return <div className="text-left font-medium">{row.getValue('artist')}</div>;
+      return (
+        <div className="text-left font-medium">{row.getValue('artist')}</div>
+      );
     },
   },
   {
     accessorKey: 'title',
     header: 'Title',
     cell: ({ row }) => {
-      return <div className="text-left font-medium">{row.getValue('title')}</div>;
+      return (
+        <div className="text-left font-medium">{row.getValue('title')}</div>
+      );
     },
   },
   {
     accessorKey: 'credits',
     header: 'Credits',
     cell: ({ row }) => {
-      return <div className="text-left font-medium">{row.getValue('credits')}</div>;
+      const credits: string[] = Array.isArray(row.getValue('credits'))
+        ? row.getValue('credits')
+        : [];
+
+      return (
+        <div className="flex flex-wrap gap-1">
+          {credits.length > 0 ? (
+            credits.map((credit, index) => (
+              <Badge key={index} variant="outline">
+                {credit}
+              </Badge>
+            ))
+          ) : (
+            <span className="text-muted-foreground">No credits</span>
+          )}
+        </div>
+      );
     },
   },
   {
