@@ -19,6 +19,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React from 'react';
+import { Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -51,14 +53,24 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4 w-100">
-        <Input
-          placeholder="Search artist or title..."
-          value={globalFilter}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-        />
+      <div className="flex justify-between">
+        <div className="flex items-center py-4 w-100">
+          <Input
+            placeholder="Search artist or title..."
+            value={globalFilter}
+            onChange={(e) => setGlobalFilter(e.target.value)}
+          />
+        </div>
+        <div className="flex justify-end py-4 w-100">
+          <Link to={'/newcredit'}>
+            <Button>
+              <Plus />
+              New Credit
+            </Button>
+          </Link>
+        </div>
       </div>
-      <div className="overflow-hidden rounded-md border w-250">
+      <div className="overflow-hidden rounded-md border w-250 h-133">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -105,6 +117,8 @@ export function DataTable<TData, TValue>({
                 </TableCell>
               </TableRow>
             )}
+            {/* empty p tag is needed for the last entry to have underline <p /> */}
+            <p />
           </TableBody>
         </Table>
       </div>

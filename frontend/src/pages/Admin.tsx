@@ -16,22 +16,34 @@ export function Admin() {
 
   const data = works;
 
-  // TODO: Change this to use backend for validation
-  const ADMIN_USERNAME = 'admin';
-  const ADMIN_PASSWORD = 'mypassword';
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      setAuthorized(true);
-      setUsername('');
-      setPassword('');
-    } else {
-      toast.error('Incorrect username and/or password!');
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        setAuthorized(true);
+        setUsername('');
+        setPassword('');
+        // toast.success('Login successful!');
+      } else if (response.status === 401) {
+        toast.error('Incorrect username and/or password!');
+      } else {
+        toast.error('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error('Cannot reach server. Please try later.');
     }
   };
 
-  if (authorized) {
+  if (!authorized) {
     // Login Form
     return (
       <>

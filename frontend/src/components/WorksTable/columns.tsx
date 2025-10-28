@@ -25,7 +25,7 @@ export const columns: ColumnDef<Work>[] = [
     header: 'Artist',
     cell: ({ row }) => {
       return (
-        <div className="text-left font-medium">{row.getValue('artist')}</div>
+        <div className="text-left font-medium w-25">{row.getValue('artist')}</div>
       );
     },
   },
@@ -34,7 +34,7 @@ export const columns: ColumnDef<Work>[] = [
     header: 'Title',
     cell: ({ row }) => {
       return (
-        <div className="text-left font-medium">{row.getValue('title')}</div>
+        <div className="text-left font-medium w-35">{row.getValue('title')}</div>
       );
     },
   },
@@ -47,7 +47,7 @@ export const columns: ColumnDef<Work>[] = [
         : [];
 
       return (
-        <div className="flex flex-wrap gap-1">
+        <div className="flex gap-1 w-35">
           {credits.length > 0 ? (
             credits.map((credit, index) => (
               <Badge key={index} variant="outline">
